@@ -37,9 +37,6 @@ function sendMassege() {
             botResponse();
             userInput.value = "";
         }
-        else {
-            alert("Enter a prompt.");
-        }
     })
 }
 sendMassege();
