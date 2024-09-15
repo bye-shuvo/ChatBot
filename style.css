@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=New+Amsterdam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Jersey+10&family=New+Amsterdam&display=swap');
+
+:root{
+    --btn-bg-color:rgba(136, 0, 255, 0.084);
+    --header-font:"New Amsterdam", sans-serif;
+    --general-font:"Jersey 10", sans-serif;
+    --paragraph-font:"Exo 2", sans-serif;
+    --theme-color:rgba(140,0,255);
+    --send-box-height: 6rem;
+    --header-height: 15%;
+    --massage-height: 65%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    height: 100dvh;
+    width: 100%;
+}
+
+#chatBoxOpen , #chatBoxClose{
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--btn-bg-color);
+    border-radius: 50%;
+    border: 2px solid var(--theme-color);
+    position: fixed;
+    top:85%;
+    right:5%;
+    cursor: pointer;
+}
+
+.openChatBot{
+    opacity: 1;
+    scale: 1;
+    transition:0.2s all ease-in-out;
+}
+.closeChatBot{
+    opacity: 0;
+    scale: 0;
+    transition:0.2s all ease-in-out;
+    pointer-events: none;
+}
+
+#chatBoxOpen:hover , #chatBoxClose:hover{
+    box-shadow: 0 0 20px 4px rgb(119, 0, 255);
+}
+
+#chatBoxClose>img{
+    height: 100%;
+    width: 100%;
+}
+
+#chatBoxOpen>img{
+    height: 70%;
+    width: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+#chatBox{
+    height: 32rem;
+    width: 25rem;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    top: 18%;
+    right: 9%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 3px 20px 5px rgb(112, 123, 128);
+}
+
+#chatBox>header{
+    height: var(--header-height);
+    width: 100%;
+    background-color:var(--theme-color);
+    text-align: center;
+    padding-top: 10px;
+    font-family:var(--header-font);
+    font-size: 3rem;
+    font-weight: bold;
+    border-bottom: 4px solid rgb(106, 1, 193);
+}
+
+#chatBox>#sendBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+    height: var(--send-box-height);
+    width: 100%;
+    padding:0 1.5rem 0 1.5rem;
+    font-family: var(--paragraph-font);
+    background:rgb(255, 255, 255);
+    z-index: 20;
+    border-top: 2px solid rgb(153, 153, 154);
+    position: absolute;
+    bottom: 0%;
+}
+
+#chatBox>#sendBox>input{
+    all: unset;
+    height: 50%;
+    width: 90%;
+    border-radius: 5px;
+    background-color: rgba(140, 0, 255, 0.153);
+    padding:0 1rem 0 1rem;
+    cursor: pointer;
+}
+
+#chatBox>#sendBox>input:focus{
+    border-bottom: 3px solid var(--theme-color);
+}
+
+#chatBox>#sendBox>button{
+    all: unset;
+    height: 40%;
+    width: 10%;
+    cursor: pointer;
+}
+
+#chatBox>#sendBox>button>img{
+    height: 100%;
+    width: 100%;
+}
+
+#chatBox>#massageBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: fit-content;
+    min-height: var(--massage-height);
+    width: 100%;
+    padding: 0 1.5rem 7rem 1.5rem;
+    font-family: var(--paragraph-font);
+    font-size: 1.1rem;
+    z-index: 10;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+#chatBox>#massageBox>.bot , .user{
+    height: auto;
+    max-width: 85%;
+    display: flex;
+    align-items: end;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+}
+
+#chatBox>#massageBox>.bot{
+    align-self: flex-start;
+}
+#chatBox>#massageBox>.user{
+    align-self: flex-end;
+}
+
+#chatBox>#massageBox>.bot>img , .user>img{
+    height: 2rem;
+}
+
+#chatBox>#massageBox>.bot>p , .user>p{
+    max-height: max-content;
+    width: 100%;
+    text-align: start;
+    padding: 1rem;
+}
+
+#chatBox>#massageBox>.bot>p{
+    background-color: rgba(184, 202, 216, 0.409);
+    border-radius: 7px 7px 7px 0px;
+}
+
+#chatBox>#massageBox>.user>p{
+    background-color: rgba(136, 0, 255, 0.298);
+    border-radius: 7px 7px 0px 7px;
+}
+
+@media only screen and (max-width:600px){
+    #chatBox{
+        max-height: fit-content;
+        min-height: 100%;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        border-radius: 0px;
+    }
+    #chatBox>header{
+        height: 10%;
+    }
+    #chatBoxClose{
+        top:2%;
+        z-index: 30;
+        background-color: rgb(255, 0, 0);
+    }
+}

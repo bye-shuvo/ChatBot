@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+    <script type="module" src="Bot-Response.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <div id="chatBoxOpen" class="openChatBot"><img src="message-solid.svg" alt="Click"></div>
+        <div id="chatBoxClose" class="closeChatBot"><img src="xmark-solid.svg" alt="Close"></div>
+        <div id="chatBox" class="closeChatBot">
+            <header>CHATBOT</header>
+            <div id="massageBox">
+                <div class="bot"><img src="robot-solid.svg" alt="bot">
+                    <p class="botText">hello!<br>How can i help you??? </p>
+                </div>
+            </div>
+            <div id="sendBox">
+                <input id="input" type="text" placeholder="Enter a messege...">
+                <button id="send"><img src="paper-plane-solid.svg" alt="send"></button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
