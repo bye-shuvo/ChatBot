@@ -40,5 +40,17 @@ function sendMassege() {
             userInput.value = "";
         }
     })
+    userInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            if (userInput.value != "") {
+                setTimeout(() => {
+                massageBox.appendChild(ThinkingTextElement);
+                massageBox.scrollTo(0, massageBox.scrollHeight);
+            }, 500);
+                botResponse();
+                userInput.value = "";
+            }
+        }
+    })
 }
 sendMassege();

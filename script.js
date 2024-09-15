@@ -40,6 +40,16 @@ function sendMassege() {
             alert("Enter a prompt.");
         }
     })
+    userInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            if (userInput.value != "") {
+                addMassege();
+            }
+            else {
+                alert("Enter a prompt.");
+            }
+        }
+    })
 }
 sendMassege();
 
