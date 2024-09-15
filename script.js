@@ -47,5 +47,5 @@ function addMassege() {
     let massage = userInput.value.trim();
     let messegeElement = `<div class="user"><p class="userText">${massage}</p><img src="user-solid.svg" alt="user"></div>`;
     massageBox.insertAdjacentHTML("beforeend", messegeElement);
+    massageBox.scrollTo(0, massageBox.scrollHeight);
 }
-

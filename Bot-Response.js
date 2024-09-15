@@ -3,6 +3,9 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const sendBtn = document.getElementById("send");
 const userInput = document.getElementById("input");
 const massageBox = document.getElementById("massageBox");
+const ThinkingTextElement = document.createElement("div");
+ThinkingTextElement.classList.add("bot");
+ThinkingTextElement.innerHTML = `<img src="robot-solid.svg" alt="bot"><p class="botText">Thinking...</p>`;
 
 let api_key;
 
@@ -11,15 +14,10 @@ fetch("secure.json").then(response => response.json()).then(data => {
 })
 
 function addBotMassage(botResponse) {
-    const ThinkingTextElement = document.createElement("div");
-    ThinkingTextElement.classList.add("bot");
-    ThinkingTextElement.innerHTML = `<img src="robot-solid.svg" alt="bot"><p class="botText">Thinking...</p>`;
-    massageBox.appendChild(ThinkingTextElement);
-    setTimeout(() => {
         ThinkingTextElement.remove();
         let messageElement = `<div class="bot"><img src="robot-solid.svg" alt="bot"><p class="botText">${botResponse}</p></div>`;
         massageBox.insertAdjacentHTML("beforeend", messageElement);
-    }, 600);
+        massageBox.scrollTo(0, massageBox.scrollHeight);
 }
 
 async function botResponse() {
@@ -34,6 +32,10 @@ async function botResponse() {
 function sendMassege() {
     sendBtn.addEventListener("click", () => {
         if (userInput.value != "") {
+            setTimeout(() => {
+            massageBox.appendChild(ThinkingTextElement);
+            massageBox.scrollTo(0, massageBox.scrollHeight);
+        }, 500);
             botResponse();
             userInput.value = "";
         }

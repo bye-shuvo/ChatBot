@@ -11,7 +11,13 @@
     --send-box-height: 6rem;
     --header-height: 15%;
     --massage-height: 65%;
+    --selection-color:rgba(140, 0, 255, 0.1);
 }
+
+::selection{
+    background-color: var(--selection-color);
+}
+
 
 *{
     margin: 0;
@@ -174,7 +180,7 @@ main{
 
 #chatBox>#massageBox>.bot>p , .user>p{
     max-height: max-content;
-    width: 100%;
+    max-width: 100%;
     text-align: start;
     padding: 1rem;
 }
@@ -202,8 +208,17 @@ main{
         height: 5.5rem;
     }
     #chatBoxClose{
+        height: 2.5rem;
+        width: 2.5rem;
         top:2%;
         z-index: 30;
         background-color: rgb(255, 0, 0);
+    }
+    #chatBox>#massageBox>.bot , .user{
+        max-width: 89%;
+    }
+
+    #chatBox>#massageBox>.bot>img , .user>img{
+        height: 1.5rem;
     }
 }
