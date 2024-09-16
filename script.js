@@ -16,6 +16,7 @@ function openBot() {
         closeButton.classList.remove("closeChatBot");
         chatBot.classList.remove("closeChatBot");
         chatBot.classList.add("openChatBot");
+        autoFocus();
     })
 }
 openBot();
@@ -58,4 +59,14 @@ function addMassege() {
     let messegeElement = `<div class="user"><p class="userText">${massage}</p><img src="user-solid.svg" alt="user"></div>`;
     massageBox.insertAdjacentHTML("beforeend", messegeElement);
     massageBox.scrollTo(0, massageBox.scrollHeight);
+}
+
+function autoFocus(){
+    const mediaQuery = window.matchMedia("(max-width:600px)");
+    if(mediaQuery.matches){
+        userInput.blur();
+    }
+    else{
+        userInput.focus();
+    }
 }
