@@ -189,13 +189,14 @@ main{
 }
 
 #chatBox>#massageBox>.bot>p{
-    background-color: rgba(184, 202, 216, 0.409);
+    background-color: rgba(204, 222, 230, 0.5);
     border-radius: 7px 7px 7px 0px;
 }
 
 #chatBox>#massageBox>.user>p{
-    background-color: rgba(136, 0, 255, 0.298);
+    background-color: rgba(136, 0, 255, 0.7);
     border-radius: 7px 7px 0px 7px;
+    color: rgb(255, 255, 255);
 }
 
 @media only screen and (max-width:600px){
